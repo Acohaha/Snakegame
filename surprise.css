@@ -94,7 +94,8 @@ p {
         margin-bottom: 20px;
     }
     p {
-        font-size: 1.5em;   /* readable on mobile */
+        font-size: 2em;
+        color: black;/* readable on mobile */
         margin: 12px 15px;
         line-height: 1.4em;
     }

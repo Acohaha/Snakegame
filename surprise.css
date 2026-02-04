@@ -13,19 +13,24 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
+    max-width: 90%; /* prevents overflow on small screens */
 }
 
+/* BIG TITLE */
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;        /* bigger */
     color: #ff1493;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    line-height: 1.2em;
 }
 
+/* BIG MESSAGE */
 p {
-    font-size: 1.2em;
+    font-size: 1.5em;      /* bigger and readable */
     color: #c71585;
-    margin: 10px 20px;
-    line-height: 1.4em;
+    margin: 15px 20px;
+    line-height: 1.6em;    /* spacing for readability */
+    word-wrap: break-word;  /* avoid overflow */
 }
 
 /* Floating hearts container */
@@ -85,10 +90,12 @@ p {
 /* ========================= */
 @media screen and (max-width: 600px) {
     h1 {
-        font-size: 2em;
+        font-size: 2.2em;
+        margin-bottom: 20px;
     }
     p {
-        font-size: 1em;
-        margin: 10px 15px;
+        font-size: 1.2em;
+        margin: 12px 15px;
+        line-height: 1.4em;
     }
 }

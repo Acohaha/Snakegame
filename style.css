@@ -1,0 +1,118 @@
+/* -------------------
+    VARIABLES (theme ready)
+-------------------- */
+:root {
+    --background: #0f0f1a;
+    --snake-color: #16FF5E;
+    --snake-gradient-start: 50;
+    --snake-gradient-step: 10;
+    --food-color: #ffffff;
+    --portal-color: #ff7eb9;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* -------------------
+    GLOBAL STYLES
+-------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* -------------------
+    GAME CONTAINER
+-------------------- */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+/* -------------------
+    TITLE & SCORE
+-------------------- */
+h1 {
+    font-size: 2rem;
+    color: #ff99c8;
+    text-shadow: 0 0 10px #ff99c8, 0 0 20px #ff7eb9;
+    animation: glowTitle 2s ease-in-out infinite alternate;
+}
+
+.scoreboard {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 0 0 5px #16FF5E;
+}
+
+/* -------------------
+    CANVAS STYLING
+-------------------- */
+canvas#game {
+    background: #0f0f1a;
+    border: 3px solid #16FF5E;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #16FF5E, 0 0 40px #16FF5E inset;
+    touch-action: none; /* prevents mobile scrolling */
+}
+
+/* -------------------
+    PORTAL ANIMATION
+-------------------- */
+.portal {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    color: var(--portal-color);
+    background: rgba(255, 126, 185, 0.2);
+    border: 2px solid var(--portal-color);
+    border-radius: 15px;
+    box-shadow: 0 0 20px var(--portal-color);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.portal.show {
+    opacity: 1;
+    transform: scale(1);
+    animation: portalPulse 1.5s infinite alternate;
+}
+
+/* -------------------
+    ANIMATIONS
+-------------------- */
+@keyframes glowTitle {
+    0% { text-shadow: 0 0 5px #ff99c8, 0 0 15px #ff7eb9; }
+    50% { text-shadow: 0 0 15px #ff99c8, 0 0 30px #ff7eb9; }
+    100% { text-shadow: 0 0 5px #ff99c8, 0 0 15px #ff7eb9; }
+}
+
+@keyframes portalPulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px var(--portal-color); }
+    50% { transform: scale(1.1); box-shadow: 0 0 40px var(--portal-color); }
+    100% { transform: scale(1); box-shadow: 0 0 20px var(--portal-color); }
+}
+
+/* -------------------
+    RESPONSIVE
+-------------------- */
+@media (max-width: 480px) {
+    canvas#game {
+        width: 90vw;
+        height: 90vw;
+    }
+}
